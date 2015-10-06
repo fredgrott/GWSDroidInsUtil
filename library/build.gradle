@@ -1,17 +1,17 @@
 apply plugin: 'com.android.library'
 apply plugin: 'de.hannesstruss.godot'
-//un comment when have real lib module to upload to jitpack
-//apply plugin: 'com.github.dcendents/android-maven'
+
+apply plugin: 'com.github.dcendents.android-maven'
 
 def libVersionCode = 1
-def libVersionName = "1.0.0.0"
+def libVersionName = "1.0.0.1"
 // if its a snapshot than version needs to be commit hash instead
 // and end user of lib will put the suffix -SNAPSHOT or commit hash and classifier aar to get
 //lib module version number
 // version = libVersionName
-// def siteUrl = 'https://github.com/shareme/GWSDroidInsUtil'
-// def gitUrl = 'https://github.com/shareme/GWSDroidInsUtil.git'
-// group = "com.github.shareme"
+def siteUrl = 'https://github.com/shareme/GWSDroidInsUtil'
+def gitUrl = 'https://github.com/shareme/GWSDroidInsUtil.git'
+ group = "com.github.shareme"
 
 
 android {
@@ -103,50 +103,50 @@ dependencies {
     }
 
 }
-// install {
-//      repostiories.mavenInstaller{
-//              pom {
-//                project {
-//                  packaging 'aar'
-//                  name 'library desc'
-//                  url siteUrl
-//
-//                  licenses {
-//                     license{
-//                          name 'The Apache Software License, Version 2.0'
-//                          url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-//                      }
-//                  }
-//                 developers {
-//                   developer {
-//                     id 'shareme'
-//                     name 'Fred Grott'
-//                     email 'fred.grott@gmail.com'
-//                   }
-//                 }
-//                  scm {
-//                    connection gitUrl
-//                    developmentConnection gitUrl
-//                    url siteUrl
-//                   }
-//               }
-//          }
-//       }
-//   }
-//
-// task sourcesJar(typ: Jar){
-//       from android.sourceSets.main.java.srcDirs
-//       classifier = 'sources'
-// }
-// task javadoc(type: Javadoc){
-//    source = android.sourceSets.main.java.srcDirs
-//    classpath += project.files(android.getBootClasspath().join(File.pathSeparator)
-// }
-// task javadocJar(type: Jar, dependsOn: javadoc){
-//    classifier = 'javadoc'
-//    from javadoc.destinationDir
-// }
-// artifacts {
-//     archives javadocJar
-//     archives sourcesJar
-//}
+install {
+      repositories.mavenInstaller{
+              pom {
+                project {
+                 packaging 'aar'
+                 name 'GWSDroidInsUtil'
+                url siteUrl
+
+                licenses {
+                   license{
+                        name 'The Apache Software License, Version 2.0'
+                       url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                  }
+                developers {
+                  developer {
+                     id 'shareme'
+                    name 'Fred Grott'
+                    email 'fred.grott@gmail.com'
+                  }
+                 }
+                 scm {
+                  connection gitUrl
+                   developerConnection gitUrl
+                   url siteUrl
+                 }
+              }
+          }
+       }
+   }
+
+ task sourcesJar(type: Jar){
+      from android.sourceSets.main.java.srcDirs
+       classifier = 'sources'
+ }
+ task javadoc(type: Javadoc){
+    source = android.sourceSets.main.java.srcDirs
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+ }
+ task javadocJar(type: Jar, dependsOn: javadoc){
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+ }
+ artifacts {
+     archives javadocJar
+     archives sourcesJar
+}
