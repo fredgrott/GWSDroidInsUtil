@@ -52,18 +52,17 @@ allprojects {
         mavenCentral()
     }
     tasks.withType(JavaForkOptions) {
-// Forked processes like GradleWorkerMain for tests won't steal focus!
+    // Forked processes like GradleWorkerMain for tests won't steal focus!
         jvmArgs '-Djava.awt.headless=true'
     }
+    // for jdk8 to avoid the R.java errors
+    if (JavaVersion.current().isJava8Compatible()) {
 
-}
-// for jdk8 to avoid the R.java errors
-if (JavaVersion.current().isJava8Compatible()) {
-    allprojects {
         tasks.withType(Javadoc) {
             options.addStringOption('Xdoclint:none', '-quiet')
         }
     }
+
 }
 
 

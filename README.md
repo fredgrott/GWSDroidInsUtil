@@ -23,7 +23,7 @@ Than in the module buildscript:
 
 
 ```groovy
-compile 'com.github.shareme:GWSDroidInsUtil:1.0.0.3@aar'
+compile 'com.github.shareme:GWSDroidInsUtil:{latest-release-number}@aar'
 ```
 
 
