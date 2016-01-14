@@ -47,7 +47,7 @@ public class SystemAnimations {
     private static final float DISABLED = 0.0f;
     private static final float DEFAULT = 1.0f;
 
-    private final Context context;
+    public final Context context;
 
     SystemAnimations(Context context) {
         this.context = context;
