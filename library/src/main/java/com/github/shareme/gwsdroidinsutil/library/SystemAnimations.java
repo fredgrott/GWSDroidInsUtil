@@ -49,7 +49,7 @@ public class SystemAnimations {
 
     public final Context context;
 
-    SystemAnimations(Context context) {
+    public SystemAnimations(Context context) {
         this.context = context;
     }
 
